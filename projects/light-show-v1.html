@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dálkově ovládaná světelná show v1 — Technický kroužek</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <script defer src="../assets/js/main.js"></script>
+  </head>
+  <body>
+    <!-- Konfigurace projektu: doplň jen URL a stránka se přizpůsobí -->
+    <script>
+      window.PROJECT_CONFIG = {
+        youtubeUrl: "https://www.youtube.com/shorts/sJx_D0URdE8",
+        codeUrl: "https://github.com/Richard-Vesely/ArduinoProjekty/blob/main/Arduino_IR_remote_neopixel12_V2/Arduino_IR_remote_neopixel12_V2.ino"
+      };
+    </script>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../">Technický kroužek</a>
+        <nav class="nav">
+          <a href="../">Domů</a>
+          <a href="../#projects">Projekty</a>
+          <a href="../#quizzes">Kvízy</a>
+          <a href="../#challenges">Výzvy</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <p class="breadcrumbs"><a href="../">Domů</a> / Projekty / Dálkově ovládaná světelná show v1</p>
+      <h1 class="page-title">Remote controlled light show version 1</h1>
+      <p class="page-subtitle">IR ovladač + Arduino Leonardo + Neopixel 12 + powerbanka</p>
+
+      <section class="two-col">
+        <div>
+          <h3>Video</h3>
+          <div id="video-embed" class="video-wrapper">
+            <iframe title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <p class="page-subtitle">URL videa nastav v horní konfiguraci <code>youtubeUrl</code>.</p>
+        </div>
+        <div>
+          <div class="panel">
+            <h3>Komponenty</h3>
+            <ul class="list">
+              <li>IR dálkový ovladač a přijímač</li>
+              <li>Mikrokontrolér (Arduino Leonardo)</li>
+              <li>Powerbanka</li>
+              <li>Modul Neopixel (kruh 12 LED)</li>
+            </ul>
+          </div>
+          <div class="panel" style="margin-top: 14px;">
+            <h3>Kód (Arduino Leonardo)</h3>
+            <p>Odkaz na plný zdrojový kód: <a id="code-link">URL na kód doplníme později</a></p>
+            <p>URL nastav v horní konfiguraci <code>codeUrl</code>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="panel">
+          <h3>Resources</h3>
+          <p>Kód pro IR přijímač, který používáme</p>
+          <div class="code-block">
+            <button class="copy-btn" data-copy-target="#starter-code">Kopírovat</button>
+            <pre><code id="starter-code">constexpr uint32_t ONE      = 0xBA45FF00;
+constexpr uint32_t TWO      = 0xB946FF00;
+constexpr uint32_t THREE    = 0xB847FF00;
+constexpr uint32_t FOUR     = 0xBB44FF00;
+constexpr uint32_t FIVE     = 0xBF40FF00;
+constexpr uint32_t SIX      = 0xBC43FF00;
+constexpr uint32_t SEVEN    = 0xF807FF00;
+constexpr uint32_t EIGHT    = 0xEA15FF00;
+constexpr uint32_t NINE     = 0xF609FF00;
+constexpr uint32_t STARBTN  = 0xE916FF00;
+constexpr uint32_t ZERO     = 0xE619FF00;
+constexpr uint32_t HASHBTN  = 0xF20DFF00;
+constexpr uint32_t UPBTN    = 0xE718FF00;
+constexpr uint32_t LEFTBTN  = 0xF708FF00;
+constexpr uint32_t OKBTN    = 0xE31CFF00;
+constexpr uint32_t RIGHTBTN = 0xA55AFF00;
+constexpr uint32_t DOWNBTN  = 0xAD52FF00;
+</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="panel">
+          <h3>Subprojects</h3>
+          <ol class="list">
+            <li>Neopixel 12 light show</li>
+            <li>Neopixel 12 light show ovládaný přes Serial Monitor</li>
+            <li>Arduino vypisuje do Serial Monitoru kódy z IR přijímače</li>
+            <li>Arduino vypisuje do Serial Monitoru stisknuté klávesy z IR vysílače</li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>© <span id="year"></span> Technický kroužek</span>
+        <span>Vytvořeno s láskou k technice</span>
+      </div>
+    </footer>
+  </body>
+  </html>
+
+
