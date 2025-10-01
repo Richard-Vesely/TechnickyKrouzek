@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Make Your Own Arduino Library — Technický kroužek</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <script defer src="../assets/js/main.js"></script>
+  </head>
+  <body>
+    <script>
+      window.PROJECT_CONFIG = null;
+    </script>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../">Technický kroužek</a>
+        <nav class="nav">
+          <a href="../">Home</a>
+          <a href="../#projects">Projects</a>
+          <a href="../#challenges">Challenges</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <p class="breadcrumbs"><a href="../">Home</a> / Projects / Make Your Own Arduino Library</p>
+      <h1 class="page-title">Challenge: Make Your Own Arduino Library</h1>
+      <p class="page-subtitle">Exact assignment text below</p>
+
+      <section class="section">
+        <div class="panel">
+          <div class="code-block">
+            <pre><code>I need a new project - making your own Arduino Library
+
+# Challenge: Make Your Own Arduino Library
+
+**Goal:** Learn how to make your own Arduino library.
+
+---
+
+## Why is this important?
+
+Think about making a **sandwich**.  
+You take **bread**, **cheese**, and **ham** → put it together → you have a sandwich. Easy!  
+
+But what if you had to make the **bread from wheat**, the **cheese from milk**, and the **ham from a pig**?  
+That would be super hard. Maybe even impossible.  
+
+👉 Using a library in code = making a sandwich with bread, cheese, and ham.  
+👉 Not using a library = starting with wheat, milk, and a pig.  
+
+Libraries are **super useful**. They save time.  
+And the best way to understand them is to **make one yourself**.
+
+---
+
+## Steps
+
+### 1. Open the project folder
+Go here:  
+[Arduino custom library demo](https://richard-vesely.github.io/ArduinoProjekty/#Arduino_custom_library_demo_IR_remote)
+
+You will see 3 folders:
+- `Arduino_custom_library_demo_WITH_library` → code that **uses a library**  
+- `Arduino_custom_library_demo_WITHOUT_library` → code that **does not use a library**  
+- `MyIRcodes` → the **custom library**  
+
+---
+
+### 2. Run code without library
+Open the folder `WITHOUT_library`.  
+Connect Arduino. Run the code.
+
+---
+
+### 3. Run code with library
+Open the folder `WITH_library`.  
+Run it.  
+👉 You will get an **error**.
+
+---
+
+### 4. Fix the error
+Ask **ChatGPT** for help.  
+⚠️ Do not just copy blindly.  
+Think about your question.  
+Better question = better help.
+
+---
+
+### 5. Compare the two codes
+Answer these:
+- Which code is shorter?  
+- Why?  
+- What is the difference?  
+
+---
+
+### 6. Think about libraries
+What is the **advantage** of using a library in this case?  
+Write your answer.
+
+---
+
+### 7. Make your own library
+With ChatGPT, make a new library.  
+- Call it `TomsIRCodes` (or another name).  
+- Take the code from step 2 (`WITHOUT_library`).  
+- Change it so it uses your new library.  
+
+Now you have your own library!
+
+---
+
+### 8. Extra (only if you want)
+Read the “ChatGPT project settings” in the resources.  
+Ask yourself:  
+- What problems happen if we don’t use this prompt?  
+
+Ask ChatGPT to explain.
+
+---
+
+### 9. Update the instructions
+Add a new instruction from step 8 into the project.
+
+---
+
+👉 Done! You made and used your own Arduino library.
+
+These are the instructions for chatGPT
+
+When writing Arduino code that uses an IR remote, look for which option I specify
+- Never hardcode raw hex IR values directly in sketches.
+
+- For logic, always compare against my constants:
+  if (signal == ONE) { ... }
+  switch (signal) { case LEFTBTN: ... }
+
+- If NEC repeat (0x0) occurs, either ignore it or reuse the last non-repeat button as appropriate.
+
+- When troubleshooting, always include Serial output showing both the raw code and the readable label using my constants.
+
+- When handling IR input, read the raw code with:
+  unsigned long signal = IrReceiver.decodedIRData.decodedRawData;
+
+Option A: Using my custom library
+assume that I have my own header-only library called `MyIRcodes.h` installed in `Documents/Arduino/libraries/MyIRcodes/`.
+- Always include it in code with:
+#include &lt;MyIRcodes.h&gt;         
+using namespace MyIR;   
+
+option B: Use translated hexes:
+constexpr uint32_t ONE      = 0xBA45FF00;
+constexpr uint32_t TWO      = 0xB946FF00;
+constexpr uint32_t THREE    = 0xB847FF00;
+constexpr uint32_t FOUR     = 0xBB44FF00;
+constexpr uint32_t FIVE     = 0xBF40FF00;
+constexpr uint32_t SIX      = 0xBC43FF00;
+constexpr uint32_t SEVEN    = 0xF807FF00;
+constexpr uint32_t EIGHT    = 0xEA15FF00;
+constexpr uint32_t NINE     = 0xF609FF00;
+constexpr uint32_t STARBTN  = 0xE916FF00;
+constexpr uint32_t ZERO     = 0xE619FF00;
+constexpr uint32_t HASHBTN  = 0xF20DFF00;
+constexpr uint32_t UPBTN    = 0xE718FF00;
+constexpr uint32_t LEFTBTN  = 0xF708FF00;
+constexpr uint32_t OKBTN    = 0xE31CFF00;
+constexpr uint32_t RIGHTBTN = 0xA55AFF00;
+constexpr uint32_t DOWNBTN  = 0xAD52FF00;
+
+Create the project page and add it to the home page</code></pre>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>© <span id="year"></span> Technický kroužek</span>
+      </div>
+    </footer>
+  </body>
+</html>
+
+
+
