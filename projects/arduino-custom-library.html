@@ -29,133 +29,127 @@
     <main class="container">
       <p class="breadcrumbs"><a href="../">Home</a> / Projects / Make Your Own Arduino Library</p>
       <h1 class="page-title">Challenge: Make Your Own Arduino Library</h1>
-      <p class="page-subtitle">Exact assignment text below</p>
+      <p class="page-subtitle">Goal: Learn how to make your own Arduino library.</p>
+
+      <!-- Student-facing content -->
+      <section class="section">
+        <div class="panel">
+          <h3>Why is this important?</h3>
+          <p>Think about making a <strong>sandwich</strong>.<br />
+          You take <strong>bread</strong>, <strong>cheese</strong>, and <strong>ham</strong> → put it together → you have a sandwich. Easy!</p>
+          <p>But what if you had to make the <strong>bread from wheat</strong>, the <strong>cheese from milk</strong>, and the <strong>ham from a pig</strong>?<br />
+          That would be super hard. Maybe even impossible.</p>
+          <p>👉 Using a library in code = making a sandwich with bread, cheese, and ham.<br />
+          👉 Not using a library = starting with wheat, milk, and a pig.</p>
+          <p>Libraries are <strong>super useful</strong>. They save time.<br />
+          And the best way to understand them is to <strong>make one yourself</strong>.</p>
+        </div>
+      </section>
 
       <section class="section">
         <div class="panel">
-          <div class="code-block">
-            <pre><code>I need a new project - making your own Arduino Library
+          <h3>Steps</h3>
+          <ol class="list">
+            <li>
+              <strong>1. Open the project folder</strong><br />
+              Go here: <a href="https://richard-vesely.github.io/ArduinoProjekty/#Arduino_custom_library_demo_IR_remote" target="_blank">Arduino custom library demo</a><br />
+              You will see 3 folders:
+              <ul class="list">
+                <li><code>Arduino_custom_library_demo_WITH_library</code> → code that <strong>uses a library</strong></li>
+                <li><code>Arduino_custom_library_demo_WITHOUT_library</code> → code that <strong>does not use a library</strong></li>
+                <li><code>MyIRcodes</code> → the <strong>custom library</strong></li>
+              </ul>
+            </li>
+            <li>
+              <strong>2. Run code without library</strong><br />
+              Open the folder <code>WITHOUT_library</code>.<br />
+              Connect Arduino. Run the code.
+            </li>
+            <li>
+              <strong>3. Run code with library</strong><br />
+              Open the folder <code>WITH_library</code>.<br />
+              Run it.<br />
+              👉 You will get an <strong>error</strong>.
+            </li>
+            <li>
+              <strong>4. Fix the error</strong><br />
+              Ask <strong>ChatGPT</strong> for help.<br />
+              ⚠️ Do not just copy blindly.<br />
+              Think about your question.<br />
+              Better question = better help.
+            </li>
+            <li>
+              <strong>5. Compare the two codes</strong><br />
+              Answer these:
+              <ul class="list">
+                <li>Which code is shorter?</li>
+                <li>Why?</li>
+                <li>What is the difference?</li>
+              </ul>
+            </li>
+            <li>
+              <strong>6. Think about libraries</strong><br />
+              What is the <strong>advantage</strong> of using a library in this case?<br />
+              Write your answer.
+            </li>
+            <li>
+              <strong>7. Make your own library</strong><br />
+              With ChatGPT, make a new library.
+              <ul class="list">
+                <li>Call it <code>TomsIRCodes</code> (or another name).</li>
+                <li>Take the code from step 2 (<code>WITHOUT_library</code>).</li>
+                <li>Change it so it uses your new library.</li>
+              </ul>
+              Now you have your own library!
+            </li>
+            <li>
+              <strong>8. Extra (only if you want)</strong><br />
+              Read the “ChatGPT project settings” in the resources.<br />
+              Ask yourself:
+              <ul class="list">
+                <li>What problems happen if we don’t use this prompt?</li>
+              </ul>
+              Ask ChatGPT to explain.
+            </li>
+            <li>
+              <strong>9. Update the instructions</strong><br />
+              Add a new instruction from step 8 into the project.
+            </li>
+          </ol>
+          <p>👉 Done! You made and used your own Arduino library.</p>
+        </div>
+      </section>
 
-# Challenge: Make Your Own Arduino Library
+      <!-- AI assistant instructions (for teachers/assistants) -->
+      <section class="section">
+        <div class="panel">
+          <h3>Instructions for ChatGPT (AI assistant)</h3>
+          <p>When writing Arduino code that uses an IR remote, look for which option is specified.</p>
+          <ul class="list">
+            <li>Never hardcode raw hex IR values directly in sketches.</li>
+            <li>For logic, always compare against constants:<br />
+              <code>if (signal == ONE) { ... }</code><br />
+              <code>switch (signal) { case LEFTBTN: ... }</code>
+            </li>
+            <li>If NEC repeat (0x0) occurs, either ignore it or reuse the last non-repeat button as appropriate.</li>
+            <li>When troubleshooting, always include Serial output showing both the raw code and the readable label using the constants.</li>
+            <li>When handling IR input, read the raw code with:<br />
+              <code>unsigned long signal = IrReceiver.decodedIRData.decodedRawData;</code>
+            </li>
+          </ul>
 
-**Goal:** Learn how to make your own Arduino library.
+          <div class="panel" style="margin-top: 14px;">
+            <h4>Option A: Using custom library</h4>
+            <p>Assume a header-only library <code>MyIRcodes.h</code> is installed in <code>Documents/Arduino/libraries/MyIRcodes/</code>.</p>
+            <div class="code-block">
+              <pre><code>#include &lt;MyIRcodes.h&gt;
+using namespace MyIR;</code></pre>
+            </div>
 
----
-
-## Why is this important?
-
-Think about making a **sandwich**.  
-You take **bread**, **cheese**, and **ham** → put it together → you have a sandwich. Easy!  
-
-But what if you had to make the **bread from wheat**, the **cheese from milk**, and the **ham from a pig**?  
-That would be super hard. Maybe even impossible.  
-
-👉 Using a library in code = making a sandwich with bread, cheese, and ham.  
-👉 Not using a library = starting with wheat, milk, and a pig.  
-
-Libraries are **super useful**. They save time.  
-And the best way to understand them is to **make one yourself**.
-
----
-
-## Steps
-
-### 1. Open the project folder
-Go here:  
-[Arduino custom library demo](https://richard-vesely.github.io/ArduinoProjekty/#Arduino_custom_library_demo_IR_remote)
-
-You will see 3 folders:
-- `Arduino_custom_library_demo_WITH_library` → code that **uses a library**  
-- `Arduino_custom_library_demo_WITHOUT_library` → code that **does not use a library**  
-- `MyIRcodes` → the **custom library**  
-
----
-
-### 2. Run code without library
-Open the folder `WITHOUT_library`.  
-Connect Arduino. Run the code.
-
----
-
-### 3. Run code with library
-Open the folder `WITH_library`.  
-Run it.  
-👉 You will get an **error**.
-
----
-
-### 4. Fix the error
-Ask **ChatGPT** for help.  
-⚠️ Do not just copy blindly.  
-Think about your question.  
-Better question = better help.
-
----
-
-### 5. Compare the two codes
-Answer these:
-- Which code is shorter?  
-- Why?  
-- What is the difference?  
-
----
-
-### 6. Think about libraries
-What is the **advantage** of using a library in this case?  
-Write your answer.
-
----
-
-### 7. Make your own library
-With ChatGPT, make a new library.  
-- Call it `TomsIRCodes` (or another name).  
-- Take the code from step 2 (`WITHOUT_library`).  
-- Change it so it uses your new library.  
-
-Now you have your own library!
-
----
-
-### 8. Extra (only if you want)
-Read the “ChatGPT project settings” in the resources.  
-Ask yourself:  
-- What problems happen if we don’t use this prompt?  
-
-Ask ChatGPT to explain.
-
----
-
-### 9. Update the instructions
-Add a new instruction from step 8 into the project.
-
----
-
-👉 Done! You made and used your own Arduino library.
-
-These are the instructions for chatGPT
-
-When writing Arduino code that uses an IR remote, look for which option I specify
-- Never hardcode raw hex IR values directly in sketches.
-
-- For logic, always compare against my constants:
-  if (signal == ONE) { ... }
-  switch (signal) { case LEFTBTN: ... }
-
-- If NEC repeat (0x0) occurs, either ignore it or reuse the last non-repeat button as appropriate.
-
-- When troubleshooting, always include Serial output showing both the raw code and the readable label using my constants.
-
-- When handling IR input, read the raw code with:
-  unsigned long signal = IrReceiver.decodedIRData.decodedRawData;
-
-Option A: Using my custom library
-assume that I have my own header-only library called `MyIRcodes.h` installed in `Documents/Arduino/libraries/MyIRcodes/`.
-- Always include it in code with:
-#include &lt;MyIRcodes.h&gt;         
-using namespace MyIR;   
-
-option B: Use translated hexes:
-constexpr uint32_t ONE      = 0xBA45FF00;
+            <h4 style="margin-top: 14px;">Option B: Use translated hexes</h4>
+            <div class="code-block">
+              <button class="copy-btn" data-copy-target="#ir-constants">Copy</button>
+              <pre><code id="ir-constants">constexpr uint32_t ONE      = 0xBA45FF00;
 constexpr uint32_t TWO      = 0xB946FF00;
 constexpr uint32_t THREE    = 0xB847FF00;
 constexpr uint32_t FOUR     = 0xBB44FF00;
@@ -171,9 +165,8 @@ constexpr uint32_t UPBTN    = 0xE718FF00;
 constexpr uint32_t LEFTBTN  = 0xF708FF00;
 constexpr uint32_t OKBTN    = 0xE31CFF00;
 constexpr uint32_t RIGHTBTN = 0xA55AFF00;
-constexpr uint32_t DOWNBTN  = 0xAD52FF00;
-
-Create the project page and add it to the home page</code></pre>
+constexpr uint32_t DOWNBTN  = 0xAD52FF00;</code></pre>
+            </div>
           </div>
         </div>
       </section>
