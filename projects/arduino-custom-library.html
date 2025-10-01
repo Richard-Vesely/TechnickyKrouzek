@@ -51,7 +51,7 @@
           <h3>Steps</h3>
           <ol class="list">
             <li>
-              <strong>1. Open the project folder</strong><br />
+              <strong>Open the project folder</strong><br />
               Go here: <a href="https://richard-vesely.github.io/ArduinoProjekty/#Arduino_custom_library_demo_IR_remote" target="_blank">Arduino custom library demo</a><br />
               You will see 3 folders:
               <ul class="list">
@@ -61,25 +61,25 @@
               </ul>
             </li>
             <li>
-              <strong>2. Run code without library</strong><br />
+              <strong>Run code without library</strong><br />
               Open the folder <code>WITHOUT_library</code>.<br />
               Connect Arduino. Run the code.
             </li>
             <li>
-              <strong>3. Run code with library</strong><br />
+              <strong>Run code with library</strong><br />
               Open the folder <code>WITH_library</code>.<br />
               Run it.<br />
               👉 You will get an <strong>error</strong>.
             </li>
             <li>
-              <strong>4. Fix the error</strong><br />
+              <strong>Fix the error</strong><br />
               Ask <strong>ChatGPT</strong> for help.<br />
               ⚠️ Do not just copy blindly.<br />
               Think about your question.<br />
               Better question = better help.
             </li>
             <li>
-              <strong>5. Compare the two codes</strong><br />
+              <strong>Compare the two codes</strong><br />
               Answer these:
               <ul class="list">
                 <li>Which code is shorter?</li>
@@ -88,12 +88,12 @@
               </ul>
             </li>
             <li>
-              <strong>6. Think about libraries</strong><br />
+              <strong>Think about libraries</strong><br />
               What is the <strong>advantage</strong> of using a library in this case?<br />
               Write your answer.
             </li>
             <li>
-              <strong>7. Make your own library</strong><br />
+              <strong>Make your own library</strong><br />
               With ChatGPT, make a new library.
               <ul class="list">
                 <li>Call it <code>TomsIRCodes</code> (or another name).</li>
@@ -103,7 +103,7 @@
               Now you have your own library!
             </li>
             <li>
-              <strong>8. Extra (only if you want)</strong><br />
+              <strong>Extra (only if you want)</strong><br />
               Read the “ChatGPT project settings” in the resources.<br />
               Ask yourself:
               <ul class="list">
@@ -112,7 +112,7 @@
               Ask ChatGPT to explain.
             </li>
             <li>
-              <strong>9. Update the instructions</strong><br />
+              <strong>Update the instructions</strong><br />
               Add a new instruction from step 8 into the project.
             </li>
           </ol>
@@ -120,36 +120,36 @@
         </div>
       </section>
 
-      <!-- AI assistant instructions (for teachers/assistants) -->
+      <!-- Resources section with ChatGPT project instructions -->
       <section class="section">
         <div class="panel">
-          <h3>Instructions for ChatGPT (AI assistant)</h3>
-          <p>When writing Arduino code that uses an IR remote, look for which option is specified.</p>
-          <ul class="list">
-            <li>Never hardcode raw hex IR values directly in sketches.</li>
-            <li>For logic, always compare against constants:<br />
-              <code>if (signal == ONE) { ... }</code><br />
-              <code>switch (signal) { case LEFTBTN: ... }</code>
-            </li>
-            <li>If NEC repeat (0x0) occurs, either ignore it or reuse the last non-repeat button as appropriate.</li>
-            <li>When troubleshooting, always include Serial output showing both the raw code and the readable label using the constants.</li>
-            <li>When handling IR input, read the raw code with:<br />
-              <code>unsigned long signal = IrReceiver.decodedIRData.decodedRawData;</code>
-            </li>
-          </ul>
-
+          <h3>Resources</h3>
           <div class="panel" style="margin-top: 14px;">
-            <h4>Option A: Using custom library</h4>
-            <p>Assume a header-only library <code>MyIRcodes.h</code> is installed in <code>Documents/Arduino/libraries/MyIRcodes/</code>.</p>
+            <h4>ChatGPT project instructions</h4>
             <div class="code-block">
-              <pre><code>#include &lt;MyIRcodes.h&gt;
-using namespace MyIR;</code></pre>
-            </div>
+              <button class="copy-btn" data-copy-target="#ai-instructions">Copy</button>
+              <pre><code id="ai-instructions">When writing Arduino code that uses an IR remote, look for which option I specify
+- Never hardcode raw hex IR values directly in sketches.
 
-            <h4 style="margin-top: 14px;">Option B: Use translated hexes</h4>
-            <div class="code-block">
-              <button class="copy-btn" data-copy-target="#ir-constants">Copy</button>
-              <pre><code id="ir-constants">constexpr uint32_t ONE      = 0xBA45FF00;
+- For logic, always compare against my constants:
+  if (signal == ONE) { ... }
+  switch (signal) { case LEFTBTN: ... }
+
+- If NEC repeat (0x0) occurs, either ignore it or reuse the last non-repeat button as appropriate.
+
+- When troubleshooting, always include Serial output showing both the raw code and the readable label using my constants.
+
+- When handling IR input, read the raw code with:
+  unsigned long signal = IrReceiver.decodedIRData.decodedRawData;
+
+Option A: Using my custom library
+assume that I have my own header-only library called `MyIRcodes.h` installed in `Documents/Arduino/libraries/MyIRcodes/`.
+- Always include it in code with:
+#include &lt;MyIRcodes.h&gt;         
+using namespace MyIR;   
+
+option B: Use translated hexes:
+constexpr uint32_t ONE      = 0xBA45FF00;
 constexpr uint32_t TWO      = 0xB946FF00;
 constexpr uint32_t THREE    = 0xB847FF00;
 constexpr uint32_t FOUR     = 0xBB44FF00;
